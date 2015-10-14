@@ -1,4 +1,4 @@
-# Inbank Stock Calculator application
+# Inbank Stock Calculator application. Deployed to heroku.
 
 This is Inbank Stock Calculator application
 by [Taavi Aasver](http://taaviaasver.com/).
