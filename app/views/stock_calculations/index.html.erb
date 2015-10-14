@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Stock Calculations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Percentage</th>
+      <th>Years</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stock_calculations.each do |stock_calculation| %>
+      <tr>
+        <td><%= stock_calculation.name %></td>
+        <td><%= stock_calculation.price %></td>
+        <td><%= stock_calculation.quantity %></td>
+        <td><%= stock_calculation.percentage %></td>
+        <td><%= stock_calculation.years %></td>
+        <td><%= link_to 'Show', stock_calculation %></td>
+        <td><%= link_to 'Edit', edit_stock_calculation_path(stock_calculation) %></td>
+        <td><%= link_to 'Destroy', stock_calculation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stock calculation', new_stock_calculation_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @stock_calculation.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @stock_calculation.price %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @stock_calculation.quantity %>
+</p>
+
+<p>
+  <strong>Percentage:</strong>
+  <%= @stock_calculation.percentage %>
+</p>
+
+<p>
+  <strong>Years:</strong>
+  <%= @stock_calculation.years %>
+</p>
+
+<%= link_to 'Edit', edit_stock_calculation_path(@stock_calculation) %> |
+<%= link_to 'Back', stock_calculations_path %>
