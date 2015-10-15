@@ -1,3 +1,4 @@
+# StockCalculationsController
 class StockCalculationsController < ApplicationController
   before_action :set_stock_calculation, only: [:show, :edit, :update, :destroy]
 
@@ -28,11 +29,21 @@ class StockCalculationsController < ApplicationController
 
     respond_to do |format|
       if @stock_calculation.save
-        format.html { redirect_to @stock_calculation, notice: 'Stock calculation was successfully created.' }
-        format.json { render :show, status: :created, location: @stock_calculation }
+        format.html do
+          redirect_to @stock_calculation,
+                      notice: "Stock calculation was successfully created."
+        end
+        format.json do
+          render :show,
+                 status: :created,
+                 location: @stock_calculation
+        end
       else
         format.html { render :new }
-        format.json { render json: @stock_calculation.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @stock_calculation.errors,
+                 status: :unprocessable_entity
+        end
       end
     end
   end
@@ -42,11 +53,17 @@ class StockCalculationsController < ApplicationController
   def update
     respond_to do |format|
       if @stock_calculation.update(stock_calculation_params)
-        format.html { redirect_to @stock_calculation, notice: 'Stock calculation was successfully updated.' }
+        format.html do
+          redirect_to @stock_calculation,
+                      notice: "Stock calculation was successfully updated."
+        end
         format.json { render :show, status: :ok, location: @stock_calculation }
       else
         format.html { render :edit }
-        format.json { render json: @stock_calculation.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @stock_calculation.errors,
+                 status: :unprocessable_entity
+        end
       end
     end
   end
@@ -56,19 +73,25 @@ class StockCalculationsController < ApplicationController
   def destroy
     @stock_calculation.destroy
     respond_to do |format|
-      format.html { redirect_to stock_calculations_url, notice: 'Stock calculation was successfully destroyed.' }
+      format.html do
+        redirect_to stock_calculations_url,
+                    notice: "Stock calculation was successfully destroyed."
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_stock_calculation
-      @stock_calculation = StockCalculation.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def stock_calculation_params
-      params.require(:stock_calculation).permit(:name, :price, :quantity, :percentage, :years)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_stock_calculation
+    @stock_calculation = StockCalculation.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the
+  # white list through.
+  def stock_calculation_params
+    params.require(:stock_calculation).permit(
+      :name, :price, :quantity, :percentage, :years)
+  end
 end

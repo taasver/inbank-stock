@@ -1,2 +1,3 @@
+# StockCalculationsHelper
 module StockCalculationsHelper
 end
